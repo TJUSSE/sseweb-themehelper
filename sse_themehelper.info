@@ -1,0 +1,6 @@
+name = SSE Theme Helper
+description = Provide helper functions for SSE theme.
+version = 7.x-0.1
+core = 7.x
+dependencies[] = ds
+package = SSE

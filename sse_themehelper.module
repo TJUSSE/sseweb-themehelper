@@ -1,0 +1,54 @@
+<?php
+
+/**
+ * implement hook_ds_fields_info()
+ */
+function sse_themehelper_ds_fields_info($entity_type) {
+  $node_fields = [];
+
+  $node_fields['news_notice_created'] = [
+    'title' => t('新闻通知：发布日期'),
+    'field_type' => DS_FIELD_TYPE_THEME,
+    'ui_limit' => ['notice_content|*', 'news_content|*', 'news_content_en|*'],
+    'properties' => [
+      'formatters' => [
+        'ds_field_news_notice_created' => t('Default')
+      ]
+    ]
+  ];
+
+  $node_fields['notice_deadline'] = [
+    'title' => t('通知：截止日期'),
+    'field_type' => DS_FIELD_TYPE_THEME,
+    'ui_limit' => ['notice_content|*'],
+    'properties' => [
+      'formatters' => [
+        'ds_field_notice_deadline' => t('Default')
+      ]
+    ]
+  ];
+
+  $node_fields['notice_tag'] = [
+    'title' => t('通知：标签'),
+    'field_type' => DS_FIELD_TYPE_THEME,
+    'ui_limit' => ['notice_content|*'],
+    'properties' => [
+      'formatters' => [
+        'ds_field_notice_tag' => t('Default')
+      ]
+    ]
+  ];
+
+  $node_fields['teacher_title_office'] = [
+    'title' => t('教师：职称和教研室'),
+    'field_type' => DS_FIELD_TYPE_THEME,
+    'ui_limit' => ['teacher_content|*'],
+    'properties' => [
+      'formatters' => [
+        'ds_field_teacher_title_office' => t('Default')
+      ]
+    ]
+  ];
+
+  return ['node' => $node_fields];
+}
